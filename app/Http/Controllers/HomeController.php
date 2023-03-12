@@ -21,6 +21,8 @@ class HomeController extends Controller
         $this->middleware('guest')->only('index');
     }
 
+   
+
     /**
      * Show the application dashboard.
      *
@@ -28,7 +30,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $posts = Post::latest()->paginate(5);
+        $posts = Post::with('comments')->latest()->paginate(5);
         return view('home', compact('posts'));
     }
 

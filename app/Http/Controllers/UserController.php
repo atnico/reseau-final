@@ -96,12 +96,16 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         // on verifie que c'est bien l'utilisateur connecté qui fait la demande de suppression
-        // les id doivent etre identiques
+        // les id doivent etre identiques Ou c'est l'admin qui peut supprimer
         if (Auth::user()->id == $user->id) {
             $user->delete();                //on réalise la suppression
             return redirect()->route('index')->with('message', 'Le compte à bie été supprimé');
-        } else {
-            return redirect()->back()->withErrors(['erreur' => 'suppression du compte impossible']);
+
+        } else  if (Auth::user()->role_id == 2){
+            $user->delete();
+            return redirect()->route('admin')->with(['message' => 'Le compte a été supprimé']);
+        } else{
+            
         }
         
     }
