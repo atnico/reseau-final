@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="text-center text-info">
+                <h1>Cit-Erun</h1>
+            </div>
 
             <h1 class="m-5">Accueil / liste des messages</h1>
 
@@ -69,7 +72,7 @@
             <!-- *************************** boucle qui affiche les messages ****************************** -->
 
             @foreach ($posts as $post)
-                <div class="card text-bg-primary mb-3">
+                <div class="card text-bg-info mb-3 mx-auto" style="width: 50rem">
                     posté par {{ $post->user->pseudo }}
                     <div class="card-header row">
                         <div class="col-6">
@@ -95,7 +98,7 @@
                         <!-- ******************** bouton modifier-> mene a la page modif messages ****************************** -->
                         <div class="container text-center mt-5">
                             <a href="{{ route('posts.edit', $post) }}">
-                                <button class="btn btn-info">
+                                <button class="btn btn-light">
                                     Modifier
                                 </button>
                             </a>
@@ -115,7 +118,7 @@
                         </div>
 
                         @foreach ($post->comments as $comment)
-                            <div class="card text-white bg-secondary mx-auto mt-2" style="width: 50rem;">
+                            <div class="card text-white bg-secondary mx-auto mt-2" style="width: 40rem;">
                                 <img class="card-img-top" src="{{ asset('images/' . $comment->image) }}"
                                     alt="image_commentaire">
                                 <div class="card-body">
@@ -123,21 +126,23 @@
                                     <p class="card-text">{{ $comment->tags }}</p>
 
                                     <!-- *************** bouton modifier-> mene a la page modif comments ******************** -->
-                                    <div class="container text-center mt-5">
-                                        <a href="{{ route('comments.edit', $comment) }}">
-                                            <button class="btn btn-info">
-                                                Modifier
-                                            </button>
-                                        </a>
+                                    <div class="btn-group ">
+                                        <div class="container text-center mt-5">
+                                            <a href="{{ route('comments.edit', $comment) }}">
+                                                <button class="btn btn-info">
+                                                    Modifier
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <!-- ******************** bouton supprimer ****************************** -->
+                                        <div class="container text-center mt-5">
+                                            <form action="{{ route('comments.destroy', $post) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <!-- ******************** bouton supprimer ****************************** -->
-                        <div class="container text-center mt-5">
-                            <form action="{{ route('comments.destroy', $post) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </div>
                                 </div>
                             </div>
                         @endforeach
@@ -150,9 +155,11 @@
 
                             <!-- *************************** input content ****************************** -->
 
-                            <div class="row mb-3">
-                                <i class="fas fa-pen-fancy text-primary fa-2x me-2"></i>
-                                <label for="content">modifier le post</label>
+                            <div class="row mb-1">
+                                <i class="fas fa-pen-fancy text-primary fa-2x me-2 mt-4"></i>
+                                <label for="content">
+                                    <h3> ajouter un commentaire</h3>
+                                </label>
                                 <textarea required class="container-fluid mt-2" type="text" name="content" id="content" placeholder="salut à tous"></textarea>
 
 
@@ -166,13 +173,13 @@
 
                             <!-- *************************** input tags ****************************** -->
 
-                            <div class="row mb-3">
-                                <label for="tags" class="col-mb-4 col-form-label text-mb-end">Tags</label>
+                            <div class="row mb-1">
+                                <label for="tags" class="col-mb-1 col-form-label text-mb-end">Tags</label>
 
                                 <div class="col-md-6">
                                     <input type="text" name="tags" id="tags"
-                                        class="form-control @error('tag') is invalid @enderror" placeholder="bonjour hello"
-                                        required autofocus>
+                                        class="form-control @error('tag') is invalid @enderror"
+                                        placeholder="bonjour hello" required autofocus>
 
                                     @error('tags')
                                         <span class="invalid-feedback" role="alert">
@@ -185,8 +192,7 @@
                             <!-- *************************** input image ****************************** -->
 
                             <div class="row mb-3">
-                                <label for="image"
-                                    class="col-mb-4 col-form-label text-md-end">{{ __('image') }}</label>
+                                <label for="image" class="col-mb-1 col-form-label ">{{ __('image') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="image" type="text"
