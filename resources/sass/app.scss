@@ -6,3 +6,73 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+section{
+    font-family: lato;
+}
+
+.site-title h1{
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+h1{
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.text-center h1{
+    color: #16a0eb;
+}
+
+.admin-title h1{
+    color: #16a0eb;
+   
+}
+
+.mon-compte h1{
+    color: #16a0eb;
+  
+}
+
+h2{
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.create-card{
+    background-color: #2e769d;
+}
+
+.card{
+    background-color: gray;
+}
+
+.read-card{
+   background-color: gray; 
+}
+
+
+label{
+    color: white;
+}
+
+.card-body{
+    background-color: #2e769d;
+}
+
+.card{
+    background-color: #2e769d;
+
+}
+
+.comment-card{
+    background-color: gray;
+}
+
+.comment-body{
+    background-color: gray;
+  
+}

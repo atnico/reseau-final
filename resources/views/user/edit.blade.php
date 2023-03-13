@@ -6,9 +6,9 @@
 
 @section('content')
     <main class="container">
-
+        <div class="mon-compte">
         <h1>Mon compte</h1>
-
+    </div>
         <h3 class="pb-3">Modifier mes informations </h3>
         <div class="row">
 

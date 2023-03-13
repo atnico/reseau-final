@@ -60,8 +60,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                    <a href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
+                                    <div>
+                                        <a class="dropdown-item" href="{{ route('admin', $user = Auth::user()) }}">Back-office Admin</a>
+                                    </div>
+                                    <div>
+                                        <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
+                                    </div>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
