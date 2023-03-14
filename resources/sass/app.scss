@@ -16,6 +16,11 @@ section{
     font-size: 5rem;
 }
 
+.logo img{
+    width: 200px;
+    color: #2e769d;
+}
+
 h1{
     font-size: 3rem;
     color: #ffffff;
@@ -23,7 +28,12 @@ h1{
 }
 
 .text-center h1{
-    color: #16a0eb;
+    color: #2e769d;
+}
+
+.text-accueil h4{
+    font-weight: bold;
+    font-size: 1.7rem;
 }
 
 .admin-title h1{
@@ -40,6 +50,28 @@ h2{
     text-align: center;
     color: #ffffff;
     font-weight: bold;
+}
+
+h3{
+    color: #2e769d;
+}
+
+.input-comment{
+    width: 600px;
+}
+.input-comment{
+    color: #2e769d;
+}
+
+.comment-edit h1{
+    color: #2e769d;
+}
+label{
+    color: #2e769d;
+}
+
+.resultat-recherche{
+    color: #2e769d;
 }
 
 .create-card{

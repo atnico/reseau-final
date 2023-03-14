@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+<style>
+    body {
+        background-image: url('./image/sporlab-XiZ7pRvCzro-unsplash.jpg');
+        /* répéter ou étendre l'image pour couvrir tout l'arrière-plan */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
     <div class="admin-title">
         <h1>Back-office admin</h1>
     </div>
@@ -67,7 +76,7 @@
                     <td>{{ $post->image }}</td>
                     <td>{{ $post->tags }}</td>
                     <td>
-                        <form method="post" action="{{ route('posts.destroy', $user) }}">
+                        <form method="post" action="{{ route('posts.destroy', $post) }}">
                             @csrf
                             @method('delete')
                             <input type="hidden" value="{{ $user->id }}" name="userId">
@@ -75,12 +84,9 @@
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="{{ route('posts.edit', $user) }}">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" value="{{ $post->id }}" name="postId">
-                            <button type="submit" class="btn btn-warning">Modifier</button>
-                        </form>
+                        <a href="{{ route('posts.edit', $post) }}">
+                            <button class="btn btn-warning">Modifier</button>
+                        </a>
 
                     </td>
                 </tr>
@@ -110,7 +116,7 @@
                     <td>{{ $comment->image }}</td>
                     <td>{{ $comment->tags }}</td>
                     <td>
-                        <form method="post" action="{{ route('comments.destroy', $user) }}">
+                        <form method="post" action="{{ route('comments.destroy', $comment) }}">
                             @csrf
                             @method('delete')
                             <input type="hidden" value="{{ $user->id }}" name="userId">
@@ -118,13 +124,10 @@
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="{{ route('comments.edit', $user) }}">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" value="{{ $post->id }}" name="postId">
-                            <button type="submit" class="btn btn-warning">Modifier</button>
-                        </form>
-
+                        
+                        <a href="{{ route('comments.edit', $comment) }}">
+                            <button class="btn btn-warning">Modifier</button>
+                        </a>
                     </td>
                 </tr>
             @endforeach

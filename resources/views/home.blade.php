@@ -2,83 +2,109 @@
 
 @section('content')
     <div class="container">
-        <style>
-            body {
-                background-image: url('./image/sporlab-XiZ7pRvCzro-unsplash.jpg');
-                /* répéter ou étendre l'image pour couvrir tout l'arrière-plan */
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-attachment: fixed;
-            }
-        </style>
-        <div class="row justify-content-center">
-            <div class="text-center text-info site-title">
-                <h1>Cit-Erun</h1>
+        @if (Route::currentRouteName() == 'search')
+            <h1 class="m-5 resultat-recherche">Résultat de la recherche</h1>
+        @else
+            <h1 class="m-5 resultat-recherche"> Accueil / liste des messages</h1>
+
+            <style>
+                body {
+                    background-image: url('./image/sporlab-XiZ7pRvCzro-unsplash.jpg');
+                    /* répéter ou étendre l'image pour couvrir tout l'arrière-plan */
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-attachment: fixed;
+                }
+            </style>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 logo img-primary">
+                        <img src="./image/logo-sans-fond.png" alt="">
+                    </div>
+                </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="text-center text-info site-title">
+                    <h1>Cit-Erun</h1>
+                </div>
 
-            <h1 class="m-5">Accueil / liste des messages</h1>
+                <h1 class="m-5">Accueil</h1>
+                <div class="text-center text-light text-accueil">
+                    <h4>Bienvenue !!! Chez CITYRUN, nous pensons que le sport est un PLAISIR qui doit être PARTAGÉ. <br> Si
+                        vous
+                        pensez comme nous, et que vous en avez assez de courir seul, VOUS ETES AU BON ENDROIT ! <br>
+                        Inscrivez-vous et rejoignez la communauté des CITYRUNNERS!!! </h4>
+                </div>
+                <h2 class="m-5">Poster un message</h2>
 
-            <h2 class="m-5">Poster un message</h2>
-
-            <form action="{{ route('posts.store') }}" method="POST" class="w-50">
-                @csrf
-                <!-- *************************** input content ****************************** -->
-                <div class="card text-center create-card" style="width: 40rem;">
-                    <div class="row mb-3 ">
-                        <i class="fas fa-pen-fancy text-primary fa-2x me-2"></i>
-                        <label for="content">écris un truc sympa (ou pas!)</label>
-                        <textarea required class="container-fluid mt-2 w-50" type="text" name="content" id="content"
-                            placeholder="salut à tous">
+                <form action="{{ route('posts.store') }}" method="POST" class="w-50">
+                    @csrf
+                    <!-- *************************** input content ****************************** -->
+                    <div class="card text-center create-card" style="width: 40rem;">
+                        <div class="row mb-3 ">
+                            <i class="fas fa-pen-fancy text-primary fa-2x me-2"></i>
+                            <label for="content">écris un truc sympa (ou pas!)</label>
+                            <textarea required class="container-fluid mt-2 w-50" type="text" name="content" id="content"
+                                placeholder="salut à tous">
 
                      </textarea>
 
-                        @error('content')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <!-- *************************** input tags ****************************** -->
-
-                    <div class="row mb-3">
-                        <label for="tags" class="col-mb-4 col-form-label text-mb-end">Tags</label>
-
-                        <div class="col-md-6 mx-auto">
-                            <input type="text" name="tags" id="tags"
-                                class="form-control @error('tag') is invalid @enderror" placeholder="bonjour hello" required
-                                autofocus>
-
-                            @error('tags')
+                            @error('content')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <!-- *************************** input image ****************************** -->
+                        <!-- *************************** input tags ****************************** -->
 
-                    <div class="row mb-3">
-                        <label for="image" class="col-mb-4 col-form-label ">{{ __('image') }}</label>
+                        <div class="row mb-3">
+                            <label for="tags" class="col-mb-4 col-form-label text-mb-end">Tags</label>
 
-                        <div class="col-md-6 mx-auto">
-                            <input id="image" type="text" class="form-control @error('image') is invalid @enderror"
-                                name="image" placeholder="image.jpg" autocomplete="image" autofocus>
+                            <div class="col-md-6 mx-auto">
+                                <input type="text" name="tags" id="tags"
+                                    class="form-control @error('tag') is invalid @enderror" placeholder="bonjour hello"
+                                    required autofocus>
 
-                            @error('image')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                @error('tags')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
+
+                        <!-- *************************** input image ****************************** -->
+
+                        <div class="row mb-3">
+                            <label for="image" class="col-mb-4 col-form-label ">{{ __('image') }}</label>
+
+                            <div class="col-md-6 mx-auto">
+                                <input id="image" type="text"
+                                    class="form-control @error('image') is invalid @enderror" name="image"
+                                    placeholder="image.jpg" autocomplete="image" autofocus>
+
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Valider</button>
                     </div>
+                </form>
+        @endif
+        <h2 class="m-5">Liste des messages</h2>
 
-                    <button type="submit" class="btn btn-primary">Valider</button>
-                </div>
-            </form>
+        <!-- *************************** si il n'y a pas de resultat => informer utilisateur ****************************** -->
 
-            <h2 class="m-5">Liste des messages</h2>
+        @if (count($posts) == 0)
+            <p>Aucun résultat pour votre recherche</p>
+        @else
+            <!-- *************************** si il y a des resultats => foreach classique ****************************** -->
+
 
             <!-- *************************** boucle qui affiche les messages ****************************** -->
 
@@ -96,33 +122,38 @@
 
 
                     <div class="card-body">
+                        <div class="col-md-12 text-center">
+                            <img class="w-75 card-img-top " src="{{ asset('image/' . $post->image) }}" alt="imagePost">
+                        </div>
+
                         <h5 class="card-title"></h5>
                         <div class="row card-text">
-                            <div class="col-md-8"><img class="w-75" src="{{ asset('image/' . $post->image) }}"
-                                    alt="imagePost">
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 mx-auto">
                                 {{ $post->content }}
                             </div>
                         </div>
 
                         <!-- ******************** bouton modifier-> mene a la page modif messages ****************************** -->
-                        <div class="container text-center mt-5">
-                            <a href="{{ route('posts.edit', $post) }}">
-                                <button class="btn btn-light">
-                                    Modifier
-                                </button>
-                            </a>
-                        </div>
-                        <!-- ******************** bouton supprimer ****************************** -->
-                        <div class="container text-center mt-5">
-                            <form action="{{ route('posts.destroy', $post) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </div>
+                        @can('update', $post)
+                            <div class="container text-center mt-5">
+                                <a href="{{ route('posts.edit', $post) }}">
+                                    <button class="btn btn-light">
+                                        Modifier
+                                    </button>
+                                </a>
+                            </div>
+                        @endcan
 
+                        <!-- ******************** bouton supprimer ****************************** -->
+                        @can('delete', $post)
+                            <div class="container text-center mt-5">
+                                <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </div>
+                        @endcan
                         <!-- ******************** commentaires associés au message ****************************** -->
                         <div class="container text-center mt-5">
                             <h2>Commentaires pour ce message</h2>
@@ -130,36 +161,41 @@
 
                         @foreach ($post->comments as $comment)
                             <div class="card comment-card text-white bg-secondary mx-auto mt-2" style="width: 40rem;">
-                                <img class="card-img-top" src="{{ asset('images/' . $comment->image) }}"
+                                <img class="card-img-top w-50 mx-auto" src="{{ asset('image/' . $comment->image) }}"
                                     alt="image_commentaire">
                                 <div class="card-body comment-body">
                                     <p class="card-text">{{ $comment->content }}</p>
                                     <p class="card-text">{{ $comment->tags }}</p>
 
                                     <!-- *************** bouton modifier-> mene a la page modif comments ******************** -->
-                                    <div class="btn-group ">
-                                        <div class="container text-center mt-5">
-                                            <a href="{{ route('comments.edit', $comment) }}">
-                                                <button class="btn btn-info">
-                                                    Modifier
-                                                </button>
-                                            </a>
-                                        </div>
+                                    @can('update', $comment)
+                                        <div class="btn-group ">
+                                            <div class="container text-center mt-5">
+                                                <a href="{{ route('comments.edit', $comment) }}">
+                                                    <button class="btn btn-info">
+                                                        Modifier
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        @endcan
                                         <!-- ******************** bouton supprimer ****************************** -->
-                                        <div class="container text-center mt-5">
-                                            <form action="{{ route('comments.destroy', $post) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                                            </form>
-                                        </div>
+                                        @can('delete', $comment)
+                                            <div class="container text-center mt-5">
+                                                <form action="{{ route('comments.destroy', $comment) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                </form>
+                                            </div>
+                                        @endcan
                                     </div>
+
                                 </div>
                             </div>
                         @endforeach
 
                         <!-- ******************** bouton commenter-> mene a la page creation de commentaire ************** -->
-                        <form action="{{ route('comments.store') }}" method="POST" class="w-50 mx-auto">
+                        <form action="{{ route('comments.store') }}" method="POST" class=" mx-auto bg-light">
                             @csrf
                             <!-- *************************** id du post associé au commentaire ****************************** -->
                             <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -171,7 +207,8 @@
                                 <label for="content">
                                     <h3> ajouter un commentaire</h3>
                                 </label>
-                                <textarea required class="container-fluid mt-2" type="text" name="content" id="content" placeholder="salut à tous"></textarea>
+                                <textarea required class="container-fluid mt-2 input-comment " type="text" name="content" id="content"
+                                    placeholder="salut à tous"></textarea>
 
 
 
@@ -184,8 +221,9 @@
 
                             <!-- *************************** input tags ****************************** -->
 
-                            <div class="row mb-1">
-                                <label for="tags" class="col-mb-1 col-form-label text-mb-end">Tags</label>
+                            <div class="row mb-1 ml-2">
+
+                                <label for="tags" class="col-mb-1 col-form-label text-mb-start">Tags</label>
 
                                 <div class="col-md-6">
                                     <input type="text" name="tags" id="tags"
@@ -224,6 +262,9 @@
                     </div>
                 </div>
             @endforeach
-        </div>
     </div>
+    </div>
+    @endif
+
+    {{ $posts->links() }}
 @endsection

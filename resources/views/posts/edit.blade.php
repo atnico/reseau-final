@@ -14,7 +14,7 @@
 
         <div class="form-group">
             <label for="content">Nouveau texte</label>
-            <textarea required type="text" class="form-control" name="content" value="{{ $post->content }}" id="pseudo"></textarea>
+            <textarea required type="text" class="form-control" name="content"  id="pseudo">{{ $post->content }}</textarea>
         </div>
         <div class="form-group">
             <label for="image">Nouvelle image</label>

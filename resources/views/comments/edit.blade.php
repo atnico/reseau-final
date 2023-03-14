@@ -5,16 +5,16 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container comment-edit">
     <h1>Modifier le commentaire</h1>
 </div>
 <form class="col-4 mx-auto" action="{{ route('comments.update', $comment) }}" method="POST">
     @csrf
     @method('PUT')
 
-    <div class="form-group">
+    <div class="form-group comment-area">
         <label for="content">Nouveau texte</label>
-        <textarea required type="text" class="form-control" name="content" value="{{ $comment->content }}" id="pseudo"></textarea>
+        <textarea required type="text" class="form-control" name="content"  id="content">{{ $comment->content }}</textarea>
     </div>
     <div class="form-group">
         <label for="image">Nouvelle image</label>

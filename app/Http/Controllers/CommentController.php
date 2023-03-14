@@ -57,6 +57,11 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
+                // on met en place la verification avec la ,policy
+        // pour etre sur que l'utilisateur a le droit d'effectuer l'action
+
+        $this->authorize('update', $comment);
+
         // 1) On valide les champs en précisant les critères attendus
         $request->validate([
             'content' => 'required|min:25|max:1000',
@@ -78,6 +83,11 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
+                // on met en place la verification avec la ,policy
+        // pour etre sur que l'utilisateur a le droit d'effectuer l'action
+
+        $this->authorize('delete', $comment);
+
         // je supprime le message
         $comment->delete();
 
