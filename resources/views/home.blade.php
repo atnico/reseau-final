@@ -37,7 +37,9 @@
                 </div>
                 <h2 class="m-5">Poster un message</h2>
 
-                <form action="{{ route('posts.store') }}" method="POST" class="w-50">
+                <!-- *************************** formulaire ajout de message ****************************** -->
+
+                <form action="{{ route('posts.store') }}" method="POST" class="w-50" enctype="multipart/form-data">
                     @csrf
                     <!-- *************************** input content ****************************** -->
                     <div class="card text-center create-card" style="width: 40rem;">
@@ -77,12 +79,10 @@
                         <!-- *************************** input image ****************************** -->
 
                         <div class="row mb-3">
-                            <label for="image" class="col-mb-4 col-form-label ">{{ __('image') }}</label>
+                            <label for="image" class="col-mb-4 col-form-label ">{{ __('image(facultative)') }}</label>
 
                             <div class="col-md-6 mx-auto">
-                                <input id="image" type="text"
-                                    class="form-control @error('image') is invalid @enderror" name="image"
-                                    placeholder="image.jpg" autocomplete="image" autofocus>
+                                <input type="file" class="form-control" name="image">
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -109,9 +109,9 @@
             <!-- *************************** boucle qui affiche les messages ****************************** -->
 
             @foreach ($posts as $post)
-                <div class="card  text-bg-light mb-3 mx-auto" style="width: 50rem">
+                <div class="card text-bg-light mb-3 text-center" style="width: 50rem">
                     posté par {{ $post->user->pseudo }}
-                    <div class="card-header row">
+                    <div class="card-header d-flex justify-content-between">
                         <div class="col-6">
                             {{ $post->tags }}
                         </div>
@@ -121,23 +121,23 @@
                     </div>
 
 
-                    <div class="card-body">
+                    <div class="card-body mb-4">
                         <div class="col-md-12 text-center">
-                            <img class="w-75 card-img-top " src="{{ asset('image/' . $post->image) }}" alt="imagePost">
+                            <img class="w-75 card-img-top image" src="{{ asset('image/' . $post->image) }}" alt="imagePost">
                         </div>
 
                         <h5 class="card-title"></h5>
                         <div class="row card-text">
-                            <div class="col-md-4 mx-auto">
+                            <div class="col-md-12 mx-auto bg-white">
                                 {{ $post->content }}
                             </div>
                         </div>
 
                         <!-- ******************** bouton modifier-> mene a la page modif messages ****************************** -->
                         @can('update', $post)
-                            <div class="container text-center mt-5">
+                            <div class="container text-center d-flex justify-content-center mt-5">
                                 <a href="{{ route('posts.edit', $post) }}">
-                                    <button class="btn btn-light">
+                                    <button class="btn btn-secondary">
                                         Modifier
                                     </button>
                                 </a>
@@ -160,17 +160,17 @@
                         </div>
 
                         @foreach ($post->comments as $comment)
-                            <div class="card comment-card text-white bg-secondary mx-auto mt-2" style="width: 40rem;">
-                                <img class="card-img-top w-50 mx-auto" src="{{ asset('image/' . $comment->image) }}"
+                            <div class="card comment-card text-white  mx-auto mt-2" style="width: 42rem;">
+                                <img class="card-img-top w-50 mx-auto mt-4" src="{{ asset('image/' . $comment->image) }}"
                                     alt="image_commentaire">
-                                <div class="card-body comment-body">
+                                <div class="card-body col-md-12 text-center mx-auto comment-body">
                                     <p class="card-text">{{ $comment->content }}</p>
                                     <p class="card-text">{{ $comment->tags }}</p>
 
                                     <!-- *************** bouton modifier-> mene a la page modif comments ******************** -->
                                     @can('update', $comment)
                                         <div class="btn-group ">
-                                            <div class="container text-center mt-5">
+                                            <div class="container text-center">
                                                 <a href="{{ route('comments.edit', $comment) }}">
                                                     <button class="btn btn-info">
                                                         Modifier
@@ -180,7 +180,7 @@
                                         @endcan
                                         <!-- ******************** bouton supprimer ****************************** -->
                                         @can('delete', $comment)
-                                            <div class="container text-center mt-5">
+                                            <div class="container text-center">
                                                 <form action="{{ route('comments.destroy', $comment) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -193,60 +193,64 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
 
-                        <!-- ******************** bouton commenter-> mene a la page creation de commentaire ************** -->
-                        <form action="{{ route('comments.store') }}" method="POST" class=" mx-auto bg-light">
-                            @csrf
-                            <!-- *************************** id du post associé au commentaire ****************************** -->
-                            <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <!-- ******************** bouton commenter-> mene a la page creation de commentaire ************** -->
+                    <form action="{{ route('comments.store') }}" method="POST" class=" mx-auto bg-light"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <!-- *************************** id du post associé au commentaire ****************************** -->
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
 
-                            <!-- *************************** input content ****************************** -->
+                        <!-- *************************** input content ****************************** -->
 
-                            <div class="row mb-1">
-                                <i class="fas fa-pen-fancy text-primary fa-2x me-2 mt-4"></i>
-                                <label for="content">
-                                    <h3> ajouter un commentaire</h3>
-                                </label>
-                                <textarea required class="container-fluid mt-2 input-comment " type="text" name="content" id="content"
+                        <div class="row mb-1  ">
+                            <i class="fas fa-pen-fancy text-primary fa-2x me-2"></i>
+                            <label for="content">
+                                <h3> ajouter un commentaire</h3>
+                            </label>
+                            <div class="form-floating">
+
+                                <textarea required class="container-fluid input-comment" type="text" name="content" id="content"
                                     placeholder="salut à tous"></textarea>
+                            </div>
 
 
 
-                                @error('content')
+                            @error('content')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- *************************** input tags ****************************** -->
+
+                        <div class="row mb-1 ml-2 text-center">
+
+                            <label for="tags" class="col-mb-1 col-form-label">Tags</label>
+
+                            <div class="col-md-6 mx-auto">
+                                <input type="text" name="tags" id="tags"
+                                    class="form-control @error('tag') is invalid @enderror" placeholder="bonjour hello"
+                                    required autofocus>
+
+                                @error('tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                        </div>
 
-                            <!-- *************************** input tags ****************************** -->
+                        <!-- *************************** input image ****************************** -->
 
-                            <div class="row mb-1 ml-2">
+                        <div class="row mb-3">
+                            <label for="image" class="col-mb-1 col-form-label ">{{ __('image') }}</label>
 
-                                <label for="tags" class="col-mb-1 col-form-label text-mb-start">Tags</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" name="tags" id="tags"
-                                        class="form-control @error('tag') is invalid @enderror"
-                                        placeholder="bonjour hello" required autofocus>
-
-                                    @error('tags')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <!-- *************************** input image ****************************** -->
-
-                            <div class="row mb-3">
-                                <label for="image" class="col-mb-1 col-form-label ">{{ __('image') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="image" type="text"
-                                        class="form-control @error('image') is invalid @enderror" name="image"
-                                        placeholder="image.jpg" autocomplete="image" autofocus>
+                            <div class="col-md-6 mx-auto">
+                                <div class="col-md-12">
+                                    <input type="file" class="form-control mb-4" name="image">
 
                                     @error('image')
                                         <span class="invalid-feedback" role="alert">
@@ -258,10 +262,10 @@
 
                             <button type="submit" class="btn btn-warning">Valider</button>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
-            @endforeach
+    </div>
+    @endforeach
     </div>
     </div>
     @endif

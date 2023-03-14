@@ -7,104 +7,148 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-section{
-    font-family: lato;
-}
-
-.site-title h1{
-    font-weight: bold;
-    font-size: 5rem;
-}
-
-.logo img{
-    width: 200px;
+.admin-title h1 {
     color: #2e769d;
 }
 
-h1{
+.card {
+    background-color: gray;
+}
+
+.card-body {
+    background-color: #2e769d;
+}
+
+.comment-edit{
+    background-color: #2e769d;
+    height: 100vh;
+}
+
+.comment-edit h1 {
+color: #ffffff;}
+
+.create-card {
+    background-color: #2e769d;
+}
+
+.comment-card {
+    background-color: gray;
+}
+
+.comment-body {
+    background-color: gray;
+    width: 40vw;
+}
+
+.comment-card-edit {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.comment-edit-label{
+    color: #2e769d;
+    font-weight: bold;
+}
+
+.comment-edit-page{
+    background-color: #2e769d;
+    height: 100vh;
+}
+
+
+h1 {
     font-size: 3rem;
     color: #ffffff;
     font-weight: bold;
 }
 
-.text-center h1{
-    color: #2e769d;
-}
-
-.text-accueil h4{
-    font-weight: bold;
-    font-size: 1.7rem;
-}
-
-.admin-title h1{
-    color: #16a0eb;
-   
-}
-
-.mon-compte h1{
-    color: #16a0eb;
-  
-}
-
-h2{
+h2 {
     text-align: center;
     color: #ffffff;
     font-weight: bold;
 }
 
-h3{
+h3 {
     color: #2e769d;
 }
 
-.input-comment{
+.image img {
+    width: 300px;
+}
+
+.input-comment {
     width: 600px;
-}
-.input-comment{
     color: #2e769d;
 }
 
-.comment-edit h1{
-    color: #2e769d;
-}
-label{
+label {
     color: #2e769d;
 }
 
-.resultat-recherche{
-    color: #2e769d;
-}
-
-.create-card{
-    background-color: #2e769d;
-}
-
-.card{
-    background-color: gray;
-}
-
-.read-card{
-   background-color: gray; 
-}
-
-
-label{
+label {
     color: white;
 }
 
-.card-body{
-    background-color: #2e769d;
+.logo img {
+    width: 200px;
+    color: #2e769d;
 }
 
-.card{
-    background-color: #2e769d;
+.mon-compte h1 {
+color: #ffffff;}
 
+.nav {
+    position: fixed;
+    width: 100vw;
 }
 
-.comment-card{
+.post-card-edit {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.post-edit-label{
+    color: #2e769d;
+    font-weight: bold;
+}
+
+.post-edit-page{
+    background-color: #2e769d;
+    height: 100vh;
+}
+
+.post-edit h1{
+    color: #ffffff;
+}
+
+.read-card {
     background-color: gray;
 }
 
-.comment-body{
-    background-color: gray;
-  
+.resultat-recherche {
+    color: #2e769d;
+}
+
+section {
+    font-family: lato;
+}
+
+.site-title h1 {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.text-accueil h4 {
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.text-center h1 {
+    color: #2e769d;
+}
+
+.user-edit h3{
+    color: #ffffff;
 }

@@ -21,12 +21,12 @@
     <!-- liste des utilisateurs -->
 
     <div class="container p-5" id="usersList">
-        <h3 class="mb-3">Liste des utilisateurs</h3>
+        <h3 class="mb-3 ">Liste des utilisateurs</h3>
 
         <table class="table table-info">
 
             <!-- titres -->
-            <thead class="thead-dark">
+            <thead class="thead-dark ">
                 <th>id</th>
                 <th>nom</th>
                 <th>e-mail</th>

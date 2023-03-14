@@ -83,7 +83,7 @@
                 </div>
                         <!-- input de recherche -->
                         @auth
-                    <form class="row mt-2 me-2" action="{{ route('search')}}" method="get">
+                    <form class="row mt-2 me-2 col-md-3" action="{{ route('search')}}" method="get">
                     <div class="input-group">
                         <input type="search" class="form-control" name="search" placeholder="Rechercher un message">
                         <button type="submit" class="btn btn-warning"> Go !</button>

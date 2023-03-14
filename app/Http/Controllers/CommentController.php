@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,14 +22,16 @@ class CommentController extends Controller
         $request->validate([
             'content' => 'required|min:25|max:1000',
             'tags' => 'required|min:3|max:50',
-            'image' => 'nullable'
-        ]);
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'        ]);
+
+           
+
 
         // 2) Sauvegarde du message
         Comment::create([
             'content' => $request->content,
             'tags' => $request['tags'],
-            'image' => $request->input('image'),
+            'image' => isset($request['image']) ? uploadImage($request['image']) : "default_user.jpg",
             'user_id' => Auth::user()->id,
             'post_id' => $request->post_id
         ]);
@@ -66,8 +69,7 @@ class CommentController extends Controller
         $request->validate([
             'content' => 'required|min:25|max:1000',
             'tags' => 'required|min:3|max:50',
-            'image' => 'nullable'
-        ]);
+            'image' => 'nullable|image|mines:jpeg,png,jpg,gif,max:2048'        ]);
 
         $comment->update($request->all());
 
