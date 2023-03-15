@@ -60,11 +60,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->role_id == 2)
+                                        <div>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin', $user = Auth::user()) }}">Back-office Admin</a>
+                                        </div>
+                                    @endif
                                     <div>
-                                        <a class="dropdown-item" href="{{ route('admin', $user = Auth::user()) }}">Back-office Admin</a>
-                                    </div>
-                                    <div>
-                                        <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
+                                        <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">Mon
+                                            compte</a>
                                     </div>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -81,13 +85,13 @@
                         @endguest
                     </ul>
                 </div>
-                        <!-- input de recherche -->
-                        @auth
-                    <form class="row mt-2 me-2 col-md-3" action="{{ route('search')}}" method="get">
-                    <div class="input-group">
-                        <input type="search" class="form-control" name="search" placeholder="Rechercher un message">
-                        <button type="submit" class="btn btn-warning"> Go !</button>
-                    </div>
+                <!-- input de recherche -->
+                @auth
+                    <form class="row mt-2 me-2 col-md-3" action="{{ route('search') }}" method="get">
+                        <div class="input-group">
+                            <input type="search" class="form-control" name="search" placeholder="Rechercher un message">
+                            <button type="submit" class="btn btn-warning"> Go !</button>
+                        </div>
                     </form>
 
                 @endauth

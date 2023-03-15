@@ -9,7 +9,7 @@
         <div class="container ">
             <h1>Modifier le commentaire</h1>
         </div>
-        <form class="col-4 mx-auto comment-card-edit mt-4" action="{{ route('comments.update', $comment) }}" method="POST">
+        <form class="mx-auto comment-card-edit mt-4" action="{{ route('comments.update', $comment) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -26,7 +26,7 @@
                 <input type="text" class="form-control" name="tags" value="{{ $comment->tags }}" id="tags">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-4">Valider</button>
+            <button type="submit" class="btn btn-secondary mt-4">Valider</button>
 
         </form>
 

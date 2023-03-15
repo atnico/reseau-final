@@ -74,10 +74,12 @@ class PostController extends Controller
         $request->validate([
             'content' => 'required|min:25|max:1000',
             'tags' => 'required|min:3|max:50',
-            'image' => 'nullable|image|mines:jpeg,png,jpg,gif,max:2048'        ]);
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,max:2048'        ]);
 
         // 2) sauvegarde du message
-        $post->update($request->all());
+        $post->content = $request->input('content');
+        $post->tags = $request->input('tags');
+        $post->image = isset($request['image']) ? uploadImage($request['image']) : $post->image;
 
         // ") on redirige vers l'accueil avec un message de succes
         return redirect()->route("home")->with('message', 'Message modifié avec succes !');

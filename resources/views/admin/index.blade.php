@@ -5,22 +5,22 @@
 @endsection
 
 @section('content')
-<style>
-    body {
-        background-image: url('./image/sporlab-XiZ7pRvCzro-unsplash.jpg');
-        /* répéter ou étendre l'image pour couvrir tout l'arrière-plan */
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-    }
-</style>
-    <div class="admin-title">
+    <style>
+        body {
+            background-image: url('./image/sporlab-XiZ7pRvCzro-unsplash.jpg');
+            /* répéter ou étendre l'image pour couvrir tout l'arrière-plan */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <div class="container-sd admin-title">
         <h1>Back-office admin</h1>
     </div>
 
     <!-- liste des utilisateurs -->
 
-    <div class="container p-5" id="usersList">
+    <div class="container-md w-75 text-center admin-subtitle  table-responsive" id="usersList">
         <h3 class="mb-3 ">Liste des utilisateurs</h3>
 
         <table class="table table-info">
@@ -55,7 +55,7 @@
 
     <!-- liste des posts -->
 
-    <div class="container p-5" id="usersList">
+    <div class="container-md w-75 text-center admin-subtitle  table-responsive" id="usersList">
         <h3 class="mb-3">Liste des messages</h3>
 
         <table class="table table-info">
@@ -95,7 +95,7 @@
     </div>
     <!-- liste des commentaires -->
 
-    <div class="container p-5" id="usersList">
+    <div class="container-md w-75 text-center admin-subtitle  table-responsive" id="usersList">
         <h3 class="mb-3">Liste des commentaires</h3>
 
         <table class="table table-info">
@@ -124,7 +124,7 @@
                         </form>
                     </td>
                     <td>
-                        
+
                         <a href="{{ route('comments.edit', $comment) }}">
                             <button class="btn btn-warning">Modifier</button>
                         </a>

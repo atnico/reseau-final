@@ -8,7 +8,12 @@
 @import 'bootstrap/scss/bootstrap';
 
 .admin-title h1 {
-    color: #2e769d;
+    color: #ffffff;
+}
+
+.admin-subtitle h3{
+    color: #ffffff;
+ 
 }
 
 .card {
@@ -37,7 +42,6 @@ color: #ffffff;}
 
 .comment-body {
     background-color: gray;
-    width: 40vw;
 }
 
 .comment-card-edit {
@@ -56,6 +60,14 @@ color: #ffffff;}
     height: 100vh;
 }
 
+.comment-title{
+    background-color: #2e769d;
+  
+}
+
+.comment-subtitle h3{
+    color: #ffffff;
+}
 
 h1 {
     font-size: 3rem;
@@ -78,7 +90,6 @@ h3 {
 }
 
 .input-comment {
-    width: 600px;
     color: #2e769d;
 }
 
@@ -93,6 +104,11 @@ label {
 .logo img {
     width: 200px;
     color: #2e769d;
+}
+
+.logo-titre{
+    border-radius: 50%;
+    width: 300px;
 }
 
 .mon-compte h1 {
@@ -152,3 +168,4 @@ section {
 .user-edit h3{
     color: #ffffff;
 }
+

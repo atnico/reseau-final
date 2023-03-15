@@ -69,9 +69,12 @@ class CommentController extends Controller
         $request->validate([
             'content' => 'required|min:25|max:1000',
             'tags' => 'required|min:3|max:50',
-            'image' => 'nullable|image|mines:jpeg,png,jpg,gif,max:2048'        ]);
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,max:2048'        ]);
 
-        $comment->update($request->all());
+            $comment->content = $request->input('content');
+            $comment->tags = $request->input('tags');
+            $comment->image = isset($request['image']) ? uploadImage($request['image']) : $comment->image;
+    
 
         // 3) on redirige vers l'accueil avec un message de succes
         return redirect()->route("home")->with('message', 'Commentaire modifié avec succes!');
