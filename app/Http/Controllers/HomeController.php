@@ -38,4 +38,11 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function politique()
+{
+    return view('politique');
 }
+
+}
+

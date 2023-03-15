@@ -36,3 +36,6 @@ Route::resource('/comments', App\Http\Controllers\CommentController::class)->exc
 
 // ************************** route back-office admin *****************************
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
+
+// ************************** route conditions générales ***************************
+Route::get('politique', [App\Http\Controllers\HomeController::class, 'politique'])->name('politique');

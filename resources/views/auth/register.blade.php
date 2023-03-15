@@ -28,7 +28,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -75,12 +75,25 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('valider') }}
-                                </button>
+                        <div class="form-group row text-center">
+                            <div class="col-md-10">
+                                <label for="politique" class="politique">
+                                    J'ai lu et j'accepte les 
+                                    <a href="{{ route('politique') }}">mentions légales et la politique de confidentialité</a>
+                                </label>
                             </div>
+                            <div class="col-md-2">
+                                <input class="mx-auto" type="checkbox" name="politique" id="politique"
+                                onclick="toggleValidationButtonDisplay()">
+                                 
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0 text-center">
+                            <button id="valider" type="submit" class="mx-auto btn text-light btn-info"
+                            style="visibility: hidden">
+                            {{ __('valider') }}
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -89,3 +102,12 @@
     </div>
 </div>
 @endsection
+
+<script>
+    function toggleValidationButtonDisplay()
+    {
+        let checkbox = document.getElementById("politique");
+        let boutonValider = document.getElementById("valider");
+        checkbox.checked ? boutonValider.style.visibility = "visible" : boutonValider.style.visibility = "hidden"
+    }
+</script>
