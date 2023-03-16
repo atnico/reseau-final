@@ -16,13 +16,13 @@
             </style>
             <div class="row justify-content-center">
                 <div class="text-center text-info site-title">
-                    <h1>Cit-Erun</h1>
+                    <h1>Cit-eRUN</h1>
 
                     <img class="logo-titre" src="./image/CIT-e.png" alt="">
                 </div>
 
                 <div class="text-center text-light mt-4 text-accueil text-fluid">
-                    <h4>Bienvenue !!! Chez CITYRUN, nous pensons que le sport est un PLAISIR qui doit être PARTAGÉ. <br> Si
+                    <h4>Bienvenue !!! Chez Cit-eRUN, nous pensons que le sport est un PLAISIR qui doit être PARTAGÉ. <br> Si
                         vous
                         pensez comme nous, et que vous en avez assez de courir seul, VOUS ETES AU BON ENDROIT ! <br>
                         Bienvenue dans la communauté des CITYRUNNERS!!! </h4>
@@ -96,13 +96,13 @@
         @foreach ($posts as $post)
             <div class="card container-md w-75 mx-auto text-bg-light mb-3 text-center">
                 posté par {{ $post->user->pseudo }}
-                @if ($post->image)
+                {{-- @if ($post->image)
                     <img src="image/{{ $post->user->image }}" alt="imageUtilisateur" class="m-1 rounded-circle"
                         style="width:5vw; height:5vw" alt="imageUtilisateur">
                 @else
                     <img src="image/default_user.jpg" class="m-1 rounded-circle"
                         style="width:5vw; height:5vw" alt="imageUtilisateur">
-                @endif
+                @endif --}}
                 <div class="card-header d-flex justify-content-between">
                     <div class="col-md-6">
                         <h4>#{{ implode(' #', explode(' ', $post->tags)) }} </h4>

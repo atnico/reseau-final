@@ -4,7 +4,7 @@
     <div class="container m-5 p-5 mx-auto">
 
         <div class="text-center">
-            <h1>Bienvenue sur CIT-eRUN !</h1>
+            <h1>Bienvenue sur Cit-eRUN !</h1>
         </div>
         <div class="text-center logo-index">
             <img src="./image/logo-sans-fond.png" alt="">
