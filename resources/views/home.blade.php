@@ -14,13 +14,6 @@
                     background-attachment: fixed;
                 }
             </style>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 logo img-primary">
-                        <img src="./image/logo-sans-fond.png" alt="">
-                    </div>
-                </div>
-            </div>
             <div class="row justify-content-center">
                 <div class="text-center text-info site-title">
                     <h1>Cit-Erun</h1>
