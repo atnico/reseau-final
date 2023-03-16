@@ -103,13 +103,13 @@
         @foreach ($posts as $post)
             <div class="card container-md w-75 mx-auto text-bg-light mb-3 text-center">
                 posté par {{ $post->user->pseudo }}
-                {{-- @if ($post->image)
+                @if ($post->image)
                     <img src="image/{{ $post->user->image }}" alt="imageUtilisateur" class="m-1 rounded-circle"
                         style="width:5vw; height:5vw" alt="imageUtilisateur">
                 @else
                     <img src="image/default_user.jpg" class="m-1 rounded-circle"
                         style="width:5vw; height:5vw" alt="imageUtilisateur">
-                @endif --}}
+                @endif
                 <div class="card-header d-flex justify-content-between">
                     <div class="col-md-6">
                         <h4>#{{ implode(' #', explode(' ', $post->tags)) }} </h4>
@@ -166,13 +166,13 @@
                             <div class="card-header bg-secondary d-flex justify-content-between">
                                 <div class="col-6">
                                     posté par {{ $comment->user->pseudo }}
-                                    {{-- @if ($comment->image)
+                                    @if ($comment->image)
                                         <img src="{{ asset("image/$comment->user->image") }} " class="m-1 rounded-circle"
                                             style="width:5vw; height:5vw" alt="imageUtilisateur">
                                     @else
                                         <img src="{{ asset('image/default_user.jpg') }} " class="m-1 rounded-circle"
                                             style="width:5vw; height:5vw" alt="imageUtilisateur">
-                                    @endif --}}
+                                    @endif
 
                                 </div>
                                 <div class="col-6">

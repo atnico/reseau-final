@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-    <h1 class="pb-3 text-center">Mentions légales et politique de confidentialité</h1>
+    <h1 class="pb-3 text-center conditions">Mentions légales et politique de confidentialité</h1>
 
     <div class="container text-center w-75 p-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center ">
             <p>
 
 
-            <h2>Définitions</h2>
+            <h2 class="conditions">Définitions</h2>
             <p><b>Client :</b> tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code
                 civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
                 <b>Prestations et Services :</b> <a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> met à
@@ -36,7 +36,7 @@
                 sensibles » ont le sens défini par le Règlement Général sur la Protection des Données (RGPD : n° 2016-679)
             </p>
 
-            <h2>1. Présentation du site internet.</h2>
+            <h2 class="conditions">1. Présentation du site internet.</h2>
             <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il
                 est précisé aux utilisateurs du site internet <a
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> l'identité des différents intervenants
@@ -59,7 +59,7 @@
 
 
 
-            <h2>2. Conditions générales d’utilisation du site et des services proposés.</h2>
+            <h2 class="conditions">2. Conditions générales d’utilisation du site et des services proposés.</h2>
 
             <p>Le Site constitue une œuvre de l’esprit protégée par les dispositions du Code de la Propriété Intellectuelle
                 et des Réglementations Internationales applicables.
@@ -81,7 +81,7 @@
                 mentions légales peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur qui est
                 invité à s’y référer le plus souvent possible afin d’en prendre connaissance.</p>
 
-            <h2>3. Description des services fournis.</h2>
+            <h2 class="conditions">3. Description des services fournis.</h2>
 
             <p>Le site internet <a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> a pour objet de fournir
                 une information concernant l’ensemble des activités de la société.
@@ -98,7 +98,7 @@
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> ne sont pas exhaustifs. Ils sont donnés
                 sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
 
-            <h2>4. Limitations contractuelles sur les données techniques.</h2>
+            <h2 class="conditions">4. Limitations contractuelles sur les données techniques.</h2>
 
             <p>Le site utilise la technologie JavaScript.
 
@@ -119,7 +119,7 @@
                 responsables en cas de dysfonctionnement du réseau Internet, des lignes téléphoniques ou du matériel
                 informatique et de téléphonie lié notamment à l’encombrement du réseau empêchant l’accès au serveur.</p>
 
-            <h2>5. Propriété intellectuelle et contrefaçons.</h2>
+            <h2 class="conditions">5. Propriété intellectuelle et contrefaçons.</h2>
 
             <p><a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> est propriétaire des droits de propriété
                 intellectuelle et détient les droits d’usage sur tous les éléments accessibles sur le site internet,
@@ -132,7 +132,7 @@
                 comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et
                 suivants du Code de Propriété Intellectuelle.</p>
 
-            <h2>6. Limitations de responsabilité.</h2>
+            <h2 class="conditions">6. Limitations de responsabilité.</h2>
 
             <p><a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> agit en tant qu’éditeur du site. <a
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> est responsable de la qualité et de la
@@ -156,13 +156,13 @@
                 message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé
                 (texte, photographie …).</p>
 
-            <h2>7. Gestion des données personnelles.</h2>
+            <h2 class="conditions">7. Gestion des données personnelles.</h2>
 
             <p>Le Client est informé des réglementations concernant la communication marketing, la loi du 21 Juin 2014 pour
                 la confiance dans l’Economie Numérique, la Loi Informatique et Liberté du 06 Août 2004 ainsi que du
                 Règlement Général sur la Protection des Données (RGPD : n° 2016-679). </p>
 
-            <h3>7.1 Responsables de la collecte des données personnelles</h3>
+            <h3 class="conditions">7.1 Responsables de la collecte des données personnelles</h3>
 
             <p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et
                 de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : atayi nicolas. <a
@@ -181,7 +181,7 @@
                 finalités pour lesquelles <a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> les traite.
             </p>
 
-            <h3>7.2 Finalité des données collectées</h3>
+            <h3 class="conditions">7.2 Finalité des données collectées</h3>
 
             <p><a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> est susceptible de traiter tout ou partie
                 des données : </p>
@@ -207,7 +207,7 @@
             <p><a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> ne commercialise pas vos données
                 personnelles qui sont donc uniquement utilisées par nécessité ou à des fins statistiques et d’analyses.</p>
 
-            <h3>7.3 Droit d’accès, de rectification et d’opposition</h3>
+            <h3 class="conditions">7.3 Droit d’accès, de rectification et d’opposition</h3>
 
             <p>
                 Conformément à la réglementation européenne en vigueur, les Utilisateurs de <a
@@ -258,7 +258,7 @@
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> peuvent déposer une réclamation auprès
                 des autorités de contrôle, et notamment de la CNIL (https://www.cnil.fr/fr/plaintes).</p>
 
-            <h3>7.4 Non-communication des données personnelles</h3>
+            <h3 class="conditions">7.4 Non-communication des données personnelles</h3>
 
             <p>
                 <a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> s’interdit de traiter, héberger ou
@@ -293,7 +293,7 @@
             <div ng-bind-html="rgpdHTML"></div>
 
 
-            <h2>8. Notification d’incident</h2>
+            <h2 class="conditions">8. Notification d’incident</h2>
             <p>
                 Quels que soient les efforts fournis, aucune méthode de transmission sur Internet et aucune méthode de
                 stockage électronique n'est complètement sûre. Nous ne pouvons en conséquence pas garantir une sécurité
@@ -313,7 +313,7 @@
                 de la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site <a
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a>.</p>
 
-            <h3>Sécurité</h3>
+            <h3 class="conditions">Sécurité</h3>
 
             <p>
                 Pour assurer la sécurité et la confidentialité des Données Personnelles et des Données Personnelles de
@@ -326,7 +326,7 @@
                 visant à les protéger contre toute perte, utilisation détournée, accès non autorisé, divulgation, altération
                 ou destruction.</p>
 
-            <h2>9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
+            <h2 class="conditions">9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
             <p>
                 Le site <a href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> contient un certain nombre de
                 liens hypertextes vers d’autres sites, mis en place avec l’autorisation de <a
@@ -339,7 +339,7 @@
             Services proposés par le site.
             <p></p>
 
-            <h3>9.1. « COOKIES »</h3>
+            <h3 class="conditions">9.1. « COOKIES »</h3>
             <p>
                 Un « cookie » est un petit fichier d’information envoyé sur le navigateur de l’Utilisateur et enregistré au
                 sein du terminal de l’Utilisateur (ex : ordinateur, smartphone), (ci-après « Cookies »). Ce fichier comprend
@@ -398,7 +398,7 @@
                 néanmoins revenir sur son consentement à ce que <a
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> dépose ce type de cookies.</p>
 
-            <h3>Article 9.2. BALISES (“TAGS”) INTERNET</h3>
+            <h3 class="conditions">Article 9.2. BALISES (“TAGS”) INTERNET</h3>
 
 
             <p>
@@ -425,7 +425,7 @@
                 l’utilisation de celui-ci et d’Internet.</p>
             <p>
             </p>
-            <h2>10. Droit applicable et attribution de juridiction.</h2>
+            <h2 class="conditions">10. Droit applicable et attribution de juridiction.</h2>
             <p>
                 Tout litige en relation avec l’utilisation du site <a
                     href="http://127.0.0.1:8000/home">http://127.0.0.1:8000/home</a> est soumis au droit français.
