@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label class="post-edit-label" for="image">Nouvelle image</label>
-                <input type="text" class="form-control" name="image" value="{{ $comment->image }}" id="image">
+                <input type="file" class="form-control" name="image" value="{{ $comment->image }}" id="image">
             </div>
             <div class="form-group">
                 <label class="post-edit-label" for="tags">Nouveau tags</label>
